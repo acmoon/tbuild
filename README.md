@@ -70,5 +70,30 @@ or
     * inputEncoding：{String} 输入文件编码，可选，默认GBK
     * outputEncoding：{String} 输出文件编码，可选，默认GBK
 
+### CssCombo
+
+*Example:*
+
+    var CssCombo = require('tbuild').CssCombo;
+
+    CssCombo.build({
+        target:'',
+        inputEncoding:'gbk',
+        outputEncoding:'gbk',
+        output:''
+    });
+
+*API:*
+
+    CssCombo.build(cfg);
+
+* cfg:{Object} 参数
+
+    * target：{String} 入口文件
+    * inputEncoding：{String} 输入文件编码，可选，默认GBK
+    * outputEncoding：{String} 输出文件编码，可选，默认GBK
+    * output：{String} 输出目录，可以使用相对路径
+    * exclude：{Array} 黑名单正则数组，可选，默认不处理[/.combine.css/, /-min.css/, /.combo.css/]
+
 ## License
 tbulid 遵守 "MIT"：https://github.com/czy88840616/tbuild/blob/master/LICENSE.md 协议
