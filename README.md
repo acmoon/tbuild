@@ -27,13 +27,29 @@ or
         output:'D:\\project\\tradeface\\assets\\120324'
     });
 
+    支持base指定多个
+
+    var ModuleComplier = require('tbuild').ModuleComplier;
+
+    ModuleComplier.build({
+        target:'F:/testbuild/assets/v2/sh/combo/detail.js',
+        base: [
+            'F:\\testbuild\\assets\\v2',
+            'F:\\SVN\\fed\\kissy-team\\kissy\\src'
+        ],
+        debug: true,
+        inputEncoding:'gbk',
+        outputEncoding:'gbk',
+        output:'f:\\testbuild'
+    });
+
 *API:*
 
     ModuleComplier.build(cfg);
 
 * cfg:{Object} 参数
 
-    * base：{String} 需要打包的根目录，可以使用相对路径
+    * base：{String} 需要打包的根目录，可以使用相对路径，建议使用绝对路径
     * target：{String} 基于根目录的入口目录
     * inputEncoding：{String} 输入文件编码，可选，默认GBK
     * outputEncoding：{String} 输出文件编码，可选，默认GBK
