@@ -10,7 +10,7 @@ or
     git clone git://github.com/czy88840616/tbuild.git
 
 ## 包含的工具有
-* ModuleComplier：KISSY ModuleComplier的nodejs版本
+* ModuleComplier：KISSY(>=1.2) ModuleComplier的nodejs版本
 * EasyCombo：一个简单的合并文件工具
 
 ### ModuleComplier
@@ -19,42 +19,29 @@ or
 
     var ModuleComplier = require('tbuild').ModuleComplier;
 
-    ModuleComplier.build({
-        target:'/tc/cart',
-        base:'D:\\project\\tradeface\\assets\\4.0',
-        inputEncoding:'gbk',
-        outputEncoding:'gbk',
-        output:'D:\\project\\tradeface\\assets\\120324'
+    // 这里和KISSY.config一样，先配置包
+    ModuleComplier.config({
+        packages: [{
+            'name': 'sh',
+            'path': '这里建议写绝对路径',
+            'charset': 'gbk'
+        }]
     });
 
-    支持base指定多个
-
-    var ModuleComplier = require('tbuild').ModuleComplier;
-
-    ModuleComplier.build({
-        target:'F:/testbuild/assets/v2/sh/combo/detail.js',
-        base: [
-            'F:\\testbuild\\assets\\v2',
-            'F:\\SVN\\fed\\kissy-team\\kissy\\src'
-        ],
-        debug: true,
-        inputEncoding:'gbk',
-        outputEncoding:'gbk',
-        output:'f:\\testbuild'
-    });
+    ModuleComplier.build('xxx.js', 'xxx.combine.js');
 
 *API:*
 
-    ModuleComplier.build(cfg);
+    ModuleComplier.config(cfg);
+    ModuleComplier.build(inputPath, outputPath);
 
 * cfg:{Object} 参数
 
-    * base：{String} 需要打包的根目录，可以使用相对路径，建议使用绝对路径
-    * target：{String} 基于根目录的入口目录
-    * inputEncoding：{String} 输入文件编码，可选，默认GBK
-    * outputEncoding：{String} 输出文件编码，可选，默认GBK
-    * output：{String} 输出目录，可以使用相对路径
-    * exclude：{Array} 黑名单正则数组，可选，默认不处理[/.combine.js/, /-min.js/]
+    * packages：{Array} KISSY的包。参见：http://docs.kissyui.com/1.2/docs/html/api/seed/loader/add.html#packages
+    * suffix：{String} 输出的文件名后缀，不带.js，比如打包后你想输出为xxx.combine.js，那么这里就配置为：.combine
+
+* inputPath: {String} 需要打包的文件路径或者目录
+* outputPath: {String} 需要输出的文件路径
 
 ### EasyCombo
 
@@ -88,28 +75,9 @@ or
 
 ### CssCombo
 
-*Example:*
-
-    var CssCombo = require('tbuild').CssCombo;
-
-    CssCombo.build({
-        target:'',
-        inputEncoding:'gbk',
-        outputEncoding:'gbk',
-        output:''
-    });
-
 *API:*
 
-    CssCombo.build(cfg);
-
-* cfg:{Object} 参数
-
-    * target：{String} 入口文件
-    * inputEncoding：{String} 输入文件编码，可选，默认GBK
-    * outputEncoding：{String} 输出文件编码，可选，默认GBK
-    * output：{String} 输出目录，可以使用相对路径
-    * exclude：{Array} 黑名单正则数组，可选，默认不处理[/.combine.css/, /-min.css/, /.combo.css/]
+    参见https://github.com/daxingplay/css-combo
 
 ## License
 tbulid 遵守 "MIT"：https://github.com/czy88840616/tbuild/blob/master/LICENSE.md 协议
