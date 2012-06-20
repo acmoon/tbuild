@@ -38,7 +38,8 @@ or
 * cfg:{Object} 参数
 
     * packages：{Array} KISSY的包。参见：http://docs.kissyui.com/1.2/docs/html/api/seed/loader/add.html#packages
-    * suffix：{String} 输出的文件名后缀，不带.js，比如打包后你想输出为xxx.combine.js，那么这里就配置为：.combine
+    * suffix：{String} 输出的文件名后缀，不带.js，比如打包后你想输出为xxx.combine.js，那么这里就配置为：.combine,
+    * map: {Array} 类似于KISSY的map方法，可以自己定义把模块名中的路径进行替换，比如把header/abc这个模块名替换为header/cdef，就应该这么配置：map: [['header/abc', 'header/cdef']]；map可以叠加
 
 * inputPath: {String} 需要打包的文件路径或者目录
 * outputPath: {String} 需要输出的文件路径
