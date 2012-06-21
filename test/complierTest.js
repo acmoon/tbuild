@@ -8,25 +8,25 @@ ModuleComplier.config({
             charset: 'gbk'
         }
     ],
-    suffix: ''
+    suffix: '',
+    charset: ''
 });
 
-//ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
+ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
 
 ModuleComplier.config({
     packages: [{
-        name: 'core',
-        path: 'F:/Website/htdocs/secondhand/assets/user-credits/1.0/',
-        charset: 'gbk'
-    },{
-        name: 'mods',
-        path: 'F:/Website/htdocs/secondhand/assets/user-credits/1.0/',
+        name: 'user-credits',
+        path: 'F:/Website/htdocs/secondhand/assets/',
         charset: 'gbk'
     },{
         name: 'utils',
         path: 'F:/Website/htdocs/secondhand/assets/',
         charset: 'gbk'
-    }]
+    }],
+    map: [
+        ['user-credits/1.0/', 'user-credits/20120601/']
+    ]
 });
 
 ModuleComplier.build('F:/Website/htdocs/secondhand/assets/user-credits/1.0/core/user-credits.js', 'F:/testbuild/v2/sh/combo/user-credit.js');
