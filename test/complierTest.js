@@ -8,10 +8,11 @@ ModuleComplier.config({
             charset: 'gbk'
         }
     ],
-    suffix: ''
+    suffix: '',
+    charset: ''
 });
 
-//ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
+ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
 
 ModuleComplier.config({
     packages: [{
