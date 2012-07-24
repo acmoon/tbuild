@@ -13,7 +13,7 @@
     },
     "contributors":[],
     "engines":{
-        "node":">=0.6.0"
+        "node":">=0.8.0"
     },
     "directories":{
         "lib":"./lib/"
@@ -21,7 +21,7 @@
     "main":"./lib/base.js",
     "dependencies":{
         "iconv-lite":">=0.1.0",
-        "css-combo": ">=0.1.6"
+        "css-combo": ">=0.2.1"
     },
     "licenses":[
         {
