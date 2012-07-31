@@ -9,7 +9,7 @@ ModuleComplier.config({
         }
     ],
     suffix: '',
-    charset: ''
+    charset: 'gbk'
 });
 
 ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
