@@ -1,6 +1,6 @@
 {
     "name":"tbuild",
-    "version":"0.3.5",
+    "version":"0.3.6",
     "description":"build tools set",
     "author":"Harry <czy88840616@gmail.com>",
     "homepage":"",
@@ -21,7 +21,8 @@
     "main":"./lib/base.js",
     "dependencies":{
         "iconv-lite":">=0.1.0",
-        "css-combo": ">=0.2.1"
+        "css-combo": ">=0.2.1",
+        "colors":">=0.6.0-1"
     },
     "licenses":[
         {
