@@ -1,44 +1,38 @@
-﻿var ModuleComplier = require('../lib/base').ModuleComplier;
+﻿var ModuleComplier = require('../lib/base').ModuleComplier,
+    path = require('path');
 
+// test charset setting. from utf-8 sources to gbk distribution.
+var sourcePath = path.resolve(__dirname, './complier-test/src'),
+    distPath = path.resolve(__dirname, './complier-test/dist');
 ModuleComplier.config({
     packages: [
         {
-            name: 'sh',
-            path: 'F:\\testbuild\\assets\\v2\\',
+            name: 'test-charset',
+            path: sourcePath,
+            // this charset specifies source file charset.
+            charset: 'utf-8'
+        }
+    ],
+    suffix: '',
+    // output to gbk distribution
+    charset: 'gbk'
+});
+
+ModuleComplier.build(path.resolve(sourcePath, './test-charset/init.js'), path.resolve(distPath, './test-charset/init.js'));
+
+var app2 = 'test-charset-gbk2gbk';
+ModuleComplier.config({
+    packages: [
+        {
+            name: app2,
+            path: sourcePath,
+            // this charset specifies source file charset.
             charset: 'gbk'
         }
     ],
     suffix: '',
+    // output to gbk distribution
     charset: 'gbk'
 });
 
-ModuleComplier.build('F:/testbuild/assets/v2/sh/combo/detail.js', 'F:/testbuild/v2/sh/combo/detail.js');
-
-ModuleComplier.config({
-    packages: [{
-        name: 'user-credits',
-        path: 'F:/Website/htdocs/secondhand/assets/',
-        charset: 'gbk'
-    },{
-        name: 'utils',
-        path: 'F:/Website/htdocs/secondhand/assets/',
-        charset: 'gbk'
-    }],
-    map: [
-        ['user-credits/1.0/', 'user-credits/20120601/']
-    ]
-});
-
-ModuleComplier.build('F:/Website/htdocs/secondhand/assets/user-credits/1.0/core/user-credits.js', 'F:/testbuild/v2/sh/combo/user-credit.js');
-
-//ModuleComplier.build({
-//    target:'F:/testbuild/assets/v2/sh/combo/detail.js',
-//    base: [
-//        'F:\\testbuild\\assets\\v2',
-//        'F:\\SVN\\fed\\kissy-team\\kissy\\src'
-//    ],
-//    debug: true,
-//    inputEncoding: 'gbk',
-//    outputEncoding:'gbk',
-//    output:'f:\\testbuild'
-//});
+ModuleComplier.build(path.resolve(sourcePath, app2 + '/init.js'), path.resolve(distPath, app2 + '/init.js'));
